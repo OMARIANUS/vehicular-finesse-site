@@ -7,5 +7,5 @@ Highlights:<br>
 *Neat self-made design.<br>
 *Responsive web design.<br>
 *Includes a simple price calculator.<br>
-*Enhanced for web accessibility.<br>
+*Optimized for web accessibility.<br>
 *Supports older browsers (IE10+).

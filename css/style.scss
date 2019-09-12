@@ -53,6 +53,20 @@ $pointThree: $primaryColor;
   background-color: $primaryColor;
 }
 
+.g-link {
+  top: 150px;
+  cursor: pointer;
+  z-index: 1000;
+
+  &:hover {
+    filter: invert(1);
+  }
+
+  img {
+    @include setArea(30px, 30px);
+  }
+}
+
 /* Navigation Section */
 
 .intro {

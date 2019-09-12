@@ -43,6 +43,21 @@
   background-color: #ff3a3a;
 }
 
+.g-link {
+  top: 150px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.g-link:hover {
+  filter: invert(1);
+}
+
+.g-link img {
+  height: 30px;
+  width: 30px;
+}
+
 /* Navigation Section */
 .intro {
   background: center/cover url("../images/intro.jpg") no-repeat;

@@ -1,0 +1,130 @@
+// Mixins
+
+@mixin customCssReset {
+  * {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+}
+
+@mixin prefix($property, $value, $isProperty: false, $isValue: false) {
+  @if ($isProperty) {
+    -webkit-#{$property}: #{$value};
+    -khtml-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    #{$property}: #{$value};
+  }
+
+  @if ($isValue) {
+    #{$property}: -webkit-#{$value};
+    #{$property}: -khtml-#{$value};
+    #{$property}: -moz-#{$value};
+    #{$property}: -ms-#{$value};
+    #{$property}: -o-#{$value};
+    #{$property}: #{$value};
+  }
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+  supported by Chrome and Opera */
+}
+
+@mixin setDisplayType($selector, $type) {
+  #{$selector} {
+    display: $type;
+  }
+}
+
+@mixin setArea($height, $width, $selector: null) {
+  @if $selector {
+    #{$selector} {
+      height: $height;
+      width: $width;
+    }
+  }
+
+  @else {
+    height: $height;
+    width: $width;
+  }
+}
+
+@mixin setPosWithCoords($position, $top: null, $left: null, $selector: null) {
+  @if $selector {
+    #{$selector} {
+      position: $position;
+      top: $top;
+      left: $left;
+    }
+  }
+
+  @else {
+    position: $position;
+    top: $top;
+    left: $left;
+  }
+}
+
+@mixin colorizeButtonOnHover($selector, $bgColor, $color) {
+  #{$selector}:hover {
+    background-color: $bgColor;
+    color: $color;
+    transition: .2s;
+  }
+}
+
+@mixin unifyLinksColor($color, $visited: false, $active: false) {
+  a {
+    color: $color;
+
+    @if $visited {
+      &:visited {
+        @extend a;
+      }
+    }
+
+    @if $active {
+      &:active {
+        @extend a;
+      }
+    }
+  }
+}
+
+@mixin createMediaQuery($width, $isMax: false, $isMin: false) {
+  @if $isMax {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+  }
+
+  @else if $isMin {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  }
+
+  @else {
+    @media only screen and (width: $width) {
+      @content;
+    }
+  }
+}
+
+// Variables
+
+//* Colors
+
+$lightwhite: rgba(#000, 0.05);
+$transparentWhite: rgba(255, 255, 255, .8);
+$transparentBlack: rgba(0, 0, 0, .5);
+$gta5Green: hsl(100, 40%, 45%);

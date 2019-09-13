@@ -9,3 +9,5 @@ Highlights:<br>
 *Includes a simple price calculator.<br>
 *Optimized for web accessibility.<br>
 *Supports older browsers (IE10+).
+
+P.S. Check out the files with "(raw)" attached to their names as they're in unmodified source code form.

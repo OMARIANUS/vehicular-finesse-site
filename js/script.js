@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var lastScrollTop = 0; // records last known position of $(window)'s scrollTop property
 
-  var navbarHeight = $(".navbar").outerHeight(); // General Functions/Event Listeners
+  var navbarHeight = $("header").outerHeight(); // General Functions/Event Listeners
 
   checkPosForNav();
   checkWinSize();

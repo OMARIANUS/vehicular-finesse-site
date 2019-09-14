@@ -6,7 +6,7 @@ $(document).ready(() => {
 
   let didScroll; // pawn for checking whether scrolling has occurred recently
   let lastScrollTop = 0; // records last known position of $(window)'s scrollTop property
-  let navbarHeight = $('.navbar').outerHeight();
+  let navbarHeight = $('header').outerHeight();
 
   // General Functions/Event Listeners
 

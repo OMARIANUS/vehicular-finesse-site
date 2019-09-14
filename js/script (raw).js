@@ -4,10 +4,9 @@ $(document).ready(() => {
 
   // Global Variables
 
-  let hasHandler = false; // pawn for checking whether "Submit" button has event handlers attached
   let didScroll; // pawn for checking whether scrolling has occurred recently
   let lastScrollTop = 0; // records last known position of $(window)'s scrollTop property
-  let navbarHeight = $('header').outerHeight();
+  let navbarHeight = $('.navbar').outerHeight();
 
   // General Functions/Event Listeners
 
@@ -39,11 +38,6 @@ $(document).ready(() => {
 
   function checkWinSize() {
     if ($(window).outerWidth() >= 992) {
-      if (!hasHandler) {
-        $('.contact-page button').hover(toggleIt, toggleIt);
-        hasHandler = true;
-      }
-
       if (!$('#navToggler').hasClass('collapsed'))
         $('#navToggler').trigger('click');
 
@@ -54,11 +48,6 @@ $(document).ready(() => {
     }
 
     else {
-      if (hasHandler) {
-        $('.contact-page button').off('mouseenter mouseleave');
-        hasHandler = false;
-      }
-
       $(window).on('scroll', confirmScroll);
 
       setInterval(() => {
@@ -94,25 +83,25 @@ $(document).ready(() => {
 
   // upperSection's Background Image Dynamism
 
-setInterval(() => {
-  if ($(window).width() >= 360) {
-    if ($('.bg-filler').attr('style') === undefined) {
-      let rand = Math.floor(Math.random() * 4);
+  setInterval(() => {
+    if ($(window).width() >= 360) {
+      if ($('.bg-filler').attr('style') === undefined) {
+        let rand = Math.floor(Math.random() * 4);
 
-      for (let i = 0; i < 4; i++) {
-        if (rand === 0)
-        rand += 1;
+        for (let i = 0; i < 4; i++) {
+          if (rand === 0)
+          rand += 1;
 
-        if (rand === i) {
-          $('.bg-filler').css({backgroundImage: `url("./images/side-img-${i}.jpg")`});
+          if (rand === i) {
+            $('.bg-filler').css({backgroundImage: `url("./images/side-img-${i}.jpg")`});
+          }
         }
       }
     }
-  }
 
-  else
-    $('.bg-filler').removeAttr('style');
-}, 1000);
+    else
+      $('.bg-filler').removeAttr('style');
+  }, 1000);
 
   // Price Calculator Functionality
 
@@ -229,19 +218,15 @@ setInterval(() => {
       }
     }
 
-    if (!allOptsSelected) {
-      $('#resultText span:first').html('Please select all options').removeClass('invisible');
-    }
-
-    else {
+    if (allOptsSelected) {
       // generate counting effect for price calculator numbers
       resNum = new CountUp('resNum', 0, res[0].price, 0, 1.5, {prefix: '$'});
 
       if (!resNum.error)
-        resNum.start();
+      resNum.start();
 
       else
-        console.error(resNum.error);
+      console.error(resNum.error);
 
       window.setTimeout(() => {
         $('#resultText span:first').html('Top recommendation').addClass('result-heading');
@@ -258,33 +243,13 @@ setInterval(() => {
         $(".result-circle").attr('aria-label', 'Calculate');
       }, 1600);
     }
+
+    else {
+      $('#resultText span:first').html('Please select all options').removeClass('invisible');
+    }
   });
 
   // Contact Page Functionality
 
-  autosize($('#message'));
-
-  $('.contact-page button').click(() => {
-    $('.contact-page input, textarea').prop('value', () => {return '';});
-    autosize.update($('#message'));
-
-    $('.contact-page button').html('Submission Successful');
-    $('.contact-page button').toggleClass('btn-slower-transition');
-    $('.contact-page button').css({
-      backgroundColor: '#ff3a3a',
-      color: 'white'
-    });
-
-    setTimeout(() => {
-      $('.contact-page button').html('Submit').trigger('touchend').removeAttr('style');
-    }, 2500);
-
-    setTimeout(() => {
-      $('.contact-page button').toggleClass('btn-slower-transition');
-    }, 3140);
-  });
-
-  function toggleIt() {
-    $('.contact-page button').toggleClass('btn-hovered');
-  }
+  autosize($('#message')); // makes <textarea> element autosizes with a different style using Autosize.js
 });

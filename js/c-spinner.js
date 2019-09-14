@@ -1,4 +1,4 @@
-// Optimized for IE10+
+// Optimized for older browsers
 
 $(window).on("load", function() {
   $(".lds-dual-ring").removeClass("d-none");

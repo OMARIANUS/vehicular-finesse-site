@@ -59,6 +59,7 @@ $pointThree: $primaryColor;
   z-index: 1000;
 
   &:hover {
+    -webkit-filter: invert(1);
     filter: invert(1);
   }
 
@@ -261,7 +262,7 @@ main {
 
         form {
           input, textarea {
-            width: 90%;
+            width: 100%;
             border: none;
             border-bottom: 1px solid #343a40;
             background-color: rgba(0, 0, 0, 0);
@@ -284,7 +285,7 @@ main {
             textarea {
               position: relative;
               top: -2px;
-              max-height: 14rem;
+              max-height: 12.1rem;
               resize: none;
               overflow: hidden;
             }
@@ -300,14 +301,13 @@ main {
           width: auto;
           border-radius: .25rem;
           transition: all .07s linear;
-        }
 
-        .btn-hovered {
-          color: white;
-          background-color: $primaryColor;
+          &:hover {
+            color: white;
+            background-color: $primaryColor;
+            transition: all .03s linear;
+          }
         }
-
-        .btn-slower-transition { transition: all .25s linear; }
       }
     }
   }
@@ -339,6 +339,9 @@ main {
     .navbar { transition: background-color .1s; }
     .navbar-nav { .nav-link { font-size: 1.1em; } }
     @include setArea(null, 70%, "main .leading-points p");
-    .contact-page { p { width: 70%; } }
   }
+
+  .contact-page { p { width: 85%; } }
 }
+
+@media (min-width: 1600px) { form { div:nth-child(2) { flex-grow: 1; } } }

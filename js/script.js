@@ -1,12 +1,12 @@
 $(document).ready(function() {
+
   // Global Variables
-  var hasHandler = false; // pawn for checking whether "Submit" button has event handlers attached
 
   var didScroll; // pawn for checking whether scrolling has occurred recently
 
   var lastScrollTop = 0; // records last known position of $(window)'s scrollTop property
 
-  var navbarHeight = $("header").outerHeight(); // General Functions/Event Listeners
+  var navbarHeight = $(".navbar").outerHeight(); // General Functions/Event Listeners
 
   checkPosForNav();
   checkWinSize();
@@ -34,11 +34,6 @@ $(document).ready(function() {
 
   function checkWinSize() {
     if ($(window).outerWidth() >= 992) {
-      if (!hasHandler) {
-        $(".contact-page button").hover(toggleIt, toggleIt);
-        hasHandler = true;
-      }
-
       if (!$("#navToggler").hasClass("collapsed"))
         $("#navToggler").trigger("click");
       if ($("#mainNav").attr("style") == "top: -80px;")
@@ -47,11 +42,6 @@ $(document).ready(function() {
         });
       $(window).off("scroll", confirmScroll);
     } else {
-      if (hasHandler) {
-        $(".contact-page button").off("mouseenter mouseleave");
-        hasHandler = false;
-      }
-
       $(window).on("scroll", confirmScroll);
       setInterval(function() {
         if (didScroll) {
@@ -86,7 +76,9 @@ $(document).ready(function() {
 
       lastScrollTop = st;
     }
-  } // upperSection's Background Image Dynamism
+  }
+
+  // upperSection's Background Image Dynamism
 
   setInterval(function() {
     if ($(window).width() >= 360) {
@@ -104,7 +96,9 @@ $(document).ready(function() {
         }
       }
     } else $(".bg-filler").removeAttr("style");
-  }, 1000); // Price Calculator Functionality
+  }, 1000);
+
+  // Price Calculator Functionality
 
   var sc1 = new Vehicle("Ford GT", "Sportscar", "Expensive", "High", 450000);
   var sc2 = new Vehicle(
@@ -235,8 +229,9 @@ $(document).ready(function() {
     var endResult = [];
     var resLen, rand;
     var msg = "";
-    var entriesFound = false; // Search Process
+    var entriesFound = false;
 
+    // Search Process
     var _loop = function _loop(i) {
       // counter that checks vehicle type array
       for (var j = 0; j < 3; j++) {
@@ -335,11 +330,7 @@ $(document).ready(function() {
       }
     }
 
-    if (!allOptsSelected) {
-      $("#resultText span:first")
-        .html("Please select all options")
-        .removeClass("invisible");
-    } else {
+    if (allOptsSelected) {
       // generate counting effect for price calculator numbers
       resNum = new CountUp("resNum", 0, res[0].price, 0, 1.5, {
         prefix: "$"
@@ -361,33 +352,14 @@ $(document).ready(function() {
         $(".result-circle").removeAttr("aria-live");
         $(".result-circle").attr("aria-label", "Calculate");
       }, 1600);
+    } else {
+      $("#resultText span:first")
+        .html("Please select all options")
+        .removeClass("invisible");
     }
-  }); // Contact Page Functionality
-
-  autosize($("#message"));
-  $(".contact-page button").click(function() {
-    $(".contact-page input, textarea").prop("value", function() {
-      return "";
-    });
-    autosize.update($("#message"));
-    $(".contact-page button").html("Submission Successful");
-    $(".contact-page button").toggleClass("btn-slower-transition");
-    $(".contact-page button").css({
-      backgroundColor: "#ff3a3a",
-      color: "white"
-    });
-    setTimeout(function() {
-      $(".contact-page button")
-        .html("Submit")
-        .trigger("touchend")
-        .removeAttr("style");
-    }, 2500);
-    setTimeout(function() {
-      $(".contact-page button").toggleClass("btn-slower-transition");
-    }, 3140);
   });
 
-  function toggleIt() {
-    $(".contact-page button").toggleClass("btn-hovered");
-  }
+  // Contact Page Functionality
+
+  autosize($("#message")); // makes <textarea> element autosizes with a different style using Autosize.js
 });

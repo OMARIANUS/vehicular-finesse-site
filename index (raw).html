@@ -37,7 +37,7 @@
     <link rel="icon" sizes="192x192" href="./images/icon-hd.png">
     <!-- Android Devices Normal Resolution -->
     <link rel="icon" sizes="128x128" href="./images/icon.png">
-    <!-- Default Favicon  -->
+    <!-- Default Favicon -->
     <link rel="icon" href="./images/favicon.png">
 
     <link rel="preload" href="./css/style.min.css" as="style" onload="this.rel = 'stylesheet';this.onload=null;">
@@ -85,7 +85,7 @@
       <nav>
         <div class="row">
           <div class="col-auto">
-            <div class="navbar navbar-expand-lg fixed-top navbar-color-scheme-color-1 bg-transparent" id="mainNav"  role="navigation">
+            <div class="navbar navbar-expand-lg fixed-top navbar-color-scheme-color-1 bg-transparent" id="mainNav" role="navigation">
               <div class="navbar-brand">
                 <a href="#"><img class="w-75 h-75" src="./images/logo.png"
                 alt="Vehicular Finesse, Inc. Logo" title="Vehicular Finesse, Inc. Logo"></a>
@@ -118,8 +118,11 @@
 
     <!-- GitHub Link Section (temporary) -->
 
-    <aside class="g-link d-flex justify-content-center position-fixed bg-white float-left rounded-right px-1 py-3">
-      <a href="https://github.com/OMARIANUS/vehicular-finesse" target="_blank" rel="noopener"><img src="./images/github-logo.svg" alt="GitHub Link"></a>
+    <aside>
+      <a class="g-link d-flex justify-content-center position-fixed bg-white float-left rounded-right px-1 py-3"
+      href="https://github.com/OMARIANUS/vehicular-finesse" target="_blank" rel="noopener">
+        <img src="./images/github-logo.svg" alt="GitHub Link">
+      </a>
     </aside>
 
     <!-- Main Section -->
@@ -386,31 +389,35 @@
 
             <div class="contact-page mt-5 py-4" id="contactPage" aria-label="Contact Us Section">
               <h1 class="font-weight-bold">Contact Us</h1>
-              <p class="mx-auto mt-3 px-2">The best way to understand your wants and needs is through <br class="d-lg-inline-block">direct communication.</p>
+              <p class="mx-auto mt-3 px-2">The best way to understand your wants and needs is through direct communication.</p>
 
-              <form class="text-left mt-5 ml-4" id="contact" action="#contactPage" method="post" autocomplete="off" role="form">
-                <div class="d-inline-flex flex-column pt-5 mb-4">
-                  <label for="name">Name</label>
-                  <input class="mb-4" type="text" name="name" id="name" size="30" spellcheck="false">
+              <form class="text-left mt-5" id="contact" action="#contactPage" method="post" autocomplete="off" role="form">
+                <div class="d-flex flex-column flex-lg-row px-4">
+                  <div class="d-inline-flex flex-column mb-4">
+                    <label for="name">Name</label>
+                    <input class="mb-4" type="text" name="name" id="name" size="30" spellcheck="false" required="true">
 
-                  <label for="email">E-mail address</label>
-                  <input class="mb-4" type="email" name="email" id="email" size="30" spellcheck="false">
+                    <label for="email">E-mail address</label>
+                    <input class="mb-4" type="email" name="email" id="email" size="30" spellcheck="false" required="true">
 
-                  <label for="subject">Subject</label>
-                  <input class="mb-lg-4" type="text" name="subject" id="subject" size="30" spellcheck="false">
-                </div>
+                    <label for="subject">Subject</label>
+                    <input class="mb-lg-4" type="text" name="subject" id="subject" size="30" spellcheck="false" required="true">
+                  </div>
 
-                <div class="float-lg-right mx-auto pt-lg-5 pr-lg-3 mr-lg-4">
-                  <div><label for="message">Message</label></div>
+                  <div class="pl-lg-5 ml-lg-auto mr-lg-5">
+                    <div><label for="message">Message</label></div>
 
-                  <div>
-                    <textarea id="message" rows="1" cols="50" wrap="hard" spellcheck="false"></textarea>
+                    <div>
+                      <textarea id="message" rows="1" cols="50" wrap="hard" spellcheck="false" required="true"></textarea>
+                    </div>
                   </div>
                 </div>
-              </form>
 
-              <button class="btn text-uppercase font-weight-bold
-              rounded-0 mt-5 mt-lg-auto" type="button" name="button" form="contact" aria-live="polite">Submit</button>
+                <div class="wrapper text-center">
+                  <button class="btn text-uppercase font-weight-bold
+                  rounded-0 mt-5 mt-lg-auto" type="submit" name="button" form="contact" value="Submit" aria-live="polite">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
         </section>

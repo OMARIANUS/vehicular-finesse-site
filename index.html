@@ -76,8 +76,10 @@
 <span class=text-white>The car of your dreams<br>one button click/stroke away</span>
 </div>
 </header>
-<aside class="g-link d-flex justify-content-center position-fixed bg-white float-left rounded-right px-1 py-3">
-<a href=https://github.com/OMARIANUS/vehicular-finesse target=_blank rel=noopener><img src=./images/github-logo.svg alt="GitHub Link"></a>
+<aside>
+<a class="g-link d-flex justify-content-center position-fixed bg-white float-left rounded-right px-1 py-3" href=https://github.com/OMARIANUS/vehicular-finesse target=_blank rel=noopener>
+<img src=./images/github-logo.svg alt="GitHub Link">
+</a>
 </aside>
 <main role=main>
 <div class=container-fluid>
@@ -272,24 +274,28 @@
 </div>
 <div class="contact-page mt-5 py-4" id=contactPage aria-label="Contact Us Section">
 <h1 class=font-weight-bold>Contact Us</h1>
-<p class="mx-auto mt-3 px-2">The best way to understand your wants and needs is through <br class=d-lg-inline-block>direct communication.</p>
-<form class="text-left mt-5 ml-4" id=contact action=#contactPage method=post autocomplete=off role=form>
-<div class="d-inline-flex flex-column pt-5 mb-4">
+<p class="mx-auto mt-3 px-2">The best way to understand your wants and needs is through direct communication.</p>
+<form class="text-left mt-5" id=contact action=#contactPage method=post autocomplete=off role=form>
+<div class="d-flex flex-column flex-lg-row px-4">
+<div class="d-inline-flex flex-column mb-4">
 <label for=name>Name</label>
-<input class=mb-4 name=name id=name size=30 spellcheck=false>
+<input class=mb-4 name=name id=name size=30 spellcheck=false required>
 <label for=email>E-mail address</label>
-<input class=mb-4 type=email name=email id=email size=30 spellcheck=false>
+<input class=mb-4 type=email name=email id=email size=30 spellcheck=false required>
 <label for=subject>Subject</label>
-<input class=mb-lg-4 name=subject id=subject size=30 spellcheck=false>
+<input class=mb-lg-4 name=subject id=subject size=30 spellcheck=false required>
 </div>
-<div class="float-lg-right mx-auto pt-lg-5 pr-lg-3 mr-lg-4">
+<div class="pl-lg-5 ml-lg-auto mr-lg-5">
 <div><label for=message>Message</label></div>
 <div>
-<textarea id=message rows=1 cols=50 wrap=hard spellcheck=false></textarea>
+<textarea id=message rows=1 cols=50 wrap=hard spellcheck=false required></textarea>
 </div>
+</div>
+</div>
+<div class="wrapper text-center">
+<button class="btn text-uppercase font-weight-bold rounded-0 mt-5 mt-lg-auto" type=submit name=button form=contact value=Submit aria-live=polite>Submit</button>
 </div>
 </form>
-<button class="btn text-uppercase font-weight-bold rounded-0 mt-5 mt-lg-auto" type=button name=button form=contact aria-live=polite>Submit</button>
 </div>
 </div>
 </section>

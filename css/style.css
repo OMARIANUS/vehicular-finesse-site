@@ -50,6 +50,7 @@
 }
 
 .g-link:hover {
+  -webkit-filter: invert(1);
   filter: invert(1);
 }
 
@@ -295,7 +296,7 @@ main .lower-section .parent-container .contact-page p {
 }
 
 main .lower-section .parent-container .contact-page form input, main .lower-section .parent-container .contact-page form textarea {
-  width: 90%;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #343a40;
   background-color: rgba(0, 0, 0, 0);
@@ -317,7 +318,7 @@ main .lower-section .parent-container .contact-page form input::selection, main 
 main .lower-section .parent-container .contact-page form div textarea {
   position: relative;
   top: -2px;
-  max-height: 14rem;
+  max-height: 12.1rem;
   resize: none;
   overflow: hidden;
 }
@@ -333,13 +334,10 @@ main .lower-section .parent-container .contact-page .btn {
   transition: all 0.07s linear;
 }
 
-main .lower-section .parent-container .contact-page .btn-hovered {
+main .lower-section .parent-container .contact-page .btn:hover {
   color: white;
   background-color: #ff3a3a;
-}
-
-main .lower-section .parent-container .contact-page .btn-slower-transition {
-  transition: all 0.25s linear;
+  transition: all 0.03s linear;
 }
 
 main footer {
@@ -389,8 +387,14 @@ main footer img {
     width: 70%;
   }
 
-  nav .contact-page p {
-    width: 70%;
+  .contact-page p {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1600px) {
+  form div:nth-child(2) {
+    flex-grow: 1;
   }
 }
 

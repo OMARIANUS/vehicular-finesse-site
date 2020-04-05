@@ -1,4 +1,4 @@
-# vehicular-finesse
+# vehicular-finesse-site
 An auto dealership static website.
 
 Main technologies implemented: HTML, CSS, JS, Sass, jQuery, Bootstrap
